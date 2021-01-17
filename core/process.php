@@ -344,4 +344,50 @@ if (isset($_GET['logout'])) {
   header('location: ../pages/userlogin.php');
 }
 
+//  Add Item to Shopping Cart
+if (isset($_POST['addToCart'])) {
+
+  if(isset($_SESSION['shoppingCart'])) {
+    $item_array_id = array_column($_SESSION['shoppingCart'], 'item_id');
+    if (!in_array($_GET['productID'], $item_array_id)) {
+      $count = count($_SESSION['shoppingCart']);
+      $item_array = array (
+        'item_id' => $_POST['productID'],
+        'item_name' => $_POST['productName'],
+        'item_price' => $_POST['productPrice'],
+        'item_quantity' => $_POST['productQuantity'],
+        'item_image1' => $_POST['productImage1']
+      );
+      $_SESSION['shoppingCart'][$count] = $item_array;
+
+    }else {
+      echo '<script>alert("Item Already Added")</script>';
+      echo '<script>window.location="../index.php"</script>';
+    }
+  }else {
+    $item_array = array (
+      'item_id' => $_POST['productID'],
+      'item_name' => $_POST['productName'],
+      'item_price' => $_POST['productPrice'],
+      'item_quantity' => $_POST['productQuantity'],
+      'item_image1' => $_POST['productImage1']
+    );
+    $_SESSION['shoppingCart'][0] = $item_array;
+  }
+
+}
+
+//  Remove Item from Shopping Cart
+if (isset($_GET['action'])) {
+  if ($_GET['action'] == 'delete') {
+    foreach($_SESSION['shoppingCart'] as $keys => $values) {
+      if ($values['item_id'] == $_GET['productID']) {
+        unset($_SESSION['shoppingCart'][$keys]);
+        echo '<script>alert("Item Removed")</script>';
+        echo '<script>window.location="../pages/cart.php"</script>';
+      }
+    }
+  }
+}
+
 ?>

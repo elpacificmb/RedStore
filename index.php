@@ -97,7 +97,7 @@ include 'iheader.php';
       <?php while($product = mysqli_fetch_assoc($result)) : ?>
 
       <div class="col-4">
-        <a href="productdetails.php?details=<?php echo $product['productID']; ?>"><img src="<?= $product['productImage1']; ?>" alt="<?= $product['productName']; ?>"></a>
+        <a href="pages/productdetails.php?details=<?php echo $product['productID']; ?>"><img src="<?= $product['productImage1']; ?>" alt="<?= $product['productName']; ?>"></a>
         <h4><?= $product['productName']; ?></h4>
         <div class="rating">
           <i class="fa fa-star"></i>
@@ -127,7 +127,7 @@ include 'iheader.php';
         </div>
         <div class="col-2">
           <p>
-            Exclusively Avalaible on ShopStore
+            Exclusively Avalaible on RedStore
           </p>
           <h1>Smart Band 4</h1>
           <small>

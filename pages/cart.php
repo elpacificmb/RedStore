@@ -11,6 +11,7 @@ if (empty($_SESSION['username'])) {
   header('location: userlogin.php');
 }
 
+
 ?>
 
 
@@ -47,7 +48,7 @@ include 'header.php';
 
   <div class="small-container cart-page">
     <!-- Cart Items Details-->
-
+    <?php if (!empty($_SESSION['shoppingCart'])): ?>
     <table>
       <tr>
         <th>Product</th>
@@ -55,68 +56,55 @@ include 'header.php';
         <th>Subtotal</th>
       </tr>
 
+        <?php
+        $subtotal = 0;
+        $tax = 0;
+        $total = 0;
+        ?>
+        
+        <?php foreach($_SESSION['shoppingCart'] as $keys => $values) : ?>
       <tr>
         <td>
           <div class="cart-info">
-            <img src="../img/buy-1.jpg" alt="buy-1">
+            <img src="<?php echo $values['item_image1']; ?>" alt="<?php echo $values['item_name']; ?>">
             <div>
-              <p>Red Printed T-Shirt</p>
-              <small>Price: $50.00</small>
-              <a href="#">Remove</a>
+              <p><?php echo $values['item_name']; ?></p>
+              <small>Price: $<?php echo $values['item_price']; ?></small>
+              <a href="../core/process.php?action=delete&productID=<?php echo $values['item_id']; ?>">Remove</a>
             </div>
           </div>
         </td>
-        <td><input type="number" name="itemNumber" id="itemNumber" value="1"></td>
-        <td>$50.00</td>
-      </tr>
-      <tr>
-        <td>
-          <div class="cart-info">
-            <img src="../img/buy-2.jpg" alt="buy-2">
-            <div>
-              <p>Red Printed T-Shirt</p>
-              <small>Price: $40.00</small>
-              <a href="#">Remove</a>
-            </div>
-          </div>
-        </td>
-        <td><input type="number" name="itemNumber" id="itemNumber" value="1"></td>
-        <td>$40.00</td>
-      </tr>
-      <tr>
-        <td>
-          <div class="cart-info">
-            <img src="../img/buy-3.jpg" alt="buy-3">
-            <div>
-              <p>Red Printed T-Shirt</p>
-              <small>Price: $75.00</small>
-              <a href="#">Remove</a>
-            </div>
-          </div>
-        </td>
-        <td><input type="number" name="itemNumber" id="itemNumber" value="1"></td>
-        <td>$75.00</td>
+        <td><?php echo $values['item_quantity']; ?></td>
+        <td>$<?php echo number_format($values['item_quantity'] * $values['item_price'], 2); ?></td>
       </tr>
 
+    <?php
+          $subtotal = $subtotal + ($values['item_quantity'] * $values['item_price']);
+          $tax = ($subtotal * 18)/100;
+          $total = $subtotal + $tax;
+    ?>
+        <?php endforeach; ?>
     </table>
     <div class="total-price">
       <table>
 
         <tr>
           <td>Subtotal</td>
-          <td>$165.00</td>
+          <td>$<?php echo number_format($subtotal, 2); ?></td>
         </tr>
         <tr>
           <td>Tax</td>
-          <td>$35.00</td>
+          <td>$<?php echo number_format($tax, 2); ?></td>
         </tr>
         <tr>
           <td>Total</td>
-          <td>$200.00</td>
+          <td>$<?php echo number_format($total, 2); ?></td>
         </tr>
 
       </table>
     </div>
+    <?php endif ?>
+
 
   </div>
  

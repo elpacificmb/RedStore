@@ -39,6 +39,7 @@ include 'header.php';
         </div>
       </div>
       <div class="col-2">
+      <form action="cart.php?action=add&productID=<?php echo $productID; ?>" method="POST">
         <input type="hidden" name="productID" value="<?php echo $productID; ?>">
         <p>Home / <?= $product['categoryName']; ?></p>
         <h1><?= $product['productName']; ?></h1>
@@ -51,13 +52,18 @@ include 'header.php';
           <option value="medium">Medium</option>
           <option value="small">Small</option>
         </select>
-        <input type="number" name="itemnumber" id="itemnumber" value="1">
-        <a href="#" class="btn">Add To Cart</a>
+        <input type="number" name="productQuantity" id="productQuantity" value="1">
+        <input type="hidden" name="productName" id="productName" value="<?= $product['productName']; ?>">
+        <input type="hidden" name="productPrice" id="productPrice" value="<?= $product['productPrice']; ?>">
+        <input type="hidden" name="productImage1" id="productImage1" value="<?= $product['productImage1']; ?>">
+        <input type="submit" value="Add To Cart" name="addToCart" class="btn">
+        <!-- <a href="#" class="btn">Add To Cart</a> -->
         <h3>Product Details<i class="fa fa-indent"></i></h3>
         <br>
         <p>
         <?= $product['productDetails']; ?>
         </p>
+      </form>
       </div>
 
     </div>

@@ -1031,6 +1031,11 @@ input[type="text"],  input[type="password"], input[type="tel"], input[type="file
   border: 1px solid #3c763d;
 }
 
+form input[type="submit"].btn {
+  width: 30%;
+
+}
+
 /* ----- Media Query for Service ----- */
 @media screen and (max-width: 960px){
   .service-box{
