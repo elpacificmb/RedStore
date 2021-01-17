@@ -77,23 +77,23 @@ if (isset($_POST['submit'])){
   // Upload images
   $productImage1 = $_FILES['productImage1']['name'];
     $destinationImage11 = '../img/productsImages/'.$renameImage3.$productImage1;
-    $destinationImage1 = '/ShopStore/img/productsImages/'.$renameImage3.$productImage1;
+    $destinationImage1 = '/RedStore/img/productsImages/'.$renameImage3.$productImage1;
     move_uploaded_file($_FILES['productImage1']['tmp_name'], $destinationImage11);
   $productImage2 = $_FILES['productImage2']['name'];
     $destinationImage21 = '../img/productsImages/'.$renameImage3.$productImage2;
-    $destinationImage2 = '/ShopStore/img/productsImages/'.$renameImage3.$productImage2;
+    $destinationImage2 = '/RedStore/img/productsImages/'.$renameImage3.$productImage2;
     move_uploaded_file($_FILES['productImage2']['tmp_name'], $destinationImage21);
   $productImage3 = $_FILES['productImage3']['name'];
     $destinationImage31 = '../img/productsImages/'.$renameImage3.$productImage3;
-    $destinationImage3 = '/ShopStore/img/productsImages/'.$renameImage3.$productImage3;
+    $destinationImage3 = '/RedStore/img/productsImages/'.$renameImage3.$productImage3;
     move_uploaded_file($_FILES['productImage3']['tmp_name'], $destinationImage31);
   $productImage4 = $_FILES['productImage4']['name'];
     $destinationImage41 = '../img/productsImages/'.$renameImage3.$productImage4;
-    $destinationImage4 = '/ShopStore/img/productsImages/'.$renameImage3.$productImage4;
+    $destinationImage4 = '/RedStore/img/productsImages/'.$renameImage3.$productImage4;
     move_uploaded_file($_FILES['productImage4']['tmp_name'], $destinationImage41);
   $productImage5 = $_FILES['productImage5']['name'];
     $destinationImage51 = '../img/productsImages/'.$renameImage3.$productImage5;
-    $destinationImage5 = '/ShopStore/img/productsImages/'.$renameImage3.$productImage5;
+    $destinationImage5 = '/RedStore/img/productsImages/'.$renameImage3.$productImage5;
     move_uploaded_file($_FILES['productImage5']['tmp_name'], $destinationImage51);
 
   $categoryName = test_input($_POST['categoryName']);
@@ -168,7 +168,7 @@ if (isset($_POST['update'])){
   $productImage1 = $_FILES['productImage1']['name'];
   if((!empty($productImage1))){
     $destinationImage11 = '../img/productsImages/'.$renameImage3.$productImage1;
-    $destinationImage1 = '/ShopStore/img/productsImages/'.$renameImage3.$productImage1;
+    $destinationImage1 = '/RedStore/img/productsImages/'.$renameImage3.$productImage1;
     move_uploaded_file($_FILES['productImage1']['tmp_name'], $destinationImage11);
   }else{
     $destinationImage1 =  $productImage1old;
@@ -177,7 +177,7 @@ if (isset($_POST['update'])){
   $productImage2 = $_FILES['productImage2']['name'];
   if((!empty($productImage2))){
     $destinationImage21 = '../img/productsImages/'.$renameImage3.$productImage2;
-    $destinationImage2 = '/ShopStore/img/productsImages/'.$renameImage3.$productImage2;
+    $destinationImage2 = '/RedStore/img/productsImages/'.$renameImage3.$productImage2;
     move_uploaded_file($_FILES['productImage2']['tmp_name'], $destinationImage21);
   }else{
     $destinationImage2 =  $productImage2old;
@@ -186,7 +186,7 @@ if (isset($_POST['update'])){
   $productImage3 = $_FILES['productImage3']['name'];
   if((!empty($productImage3))){
     $destinationImage31 = '../img/productsImages/'.$renameImage3.$productImage3;
-    $destinationImage3 = '/ShopStore/img/productsImages/'.$renameImage3.$productImage3;
+    $destinationImage3 = '/RedStore/img/productsImages/'.$renameImage3.$productImage3;
     move_uploaded_file($_FILES['productImage3']['tmp_name'], $destinationImage31);
   }else{
     $destinationImage3 =  $productImage3old;
@@ -195,7 +195,7 @@ if (isset($_POST['update'])){
   $productImage4 = $_FILES['productImage4']['name'];
   if((!empty($productImage4))){
     $destinationImage41 = '../img/productsImages/'.$renameImage3.$productImage4;
-    $destinationImage4 = '/ShopStore/img/productsImages/'.$renameImage3.$productImage4;
+    $destinationImage4 = '/RedStore/img/productsImages/'.$renameImage3.$productImage4;
     move_uploaded_file($_FILES['productImage4']['tmp_name'], $destinationImage41);
   }else{
     $destinationImage4 =  $productImage4old;
@@ -204,7 +204,7 @@ if (isset($_POST['update'])){
   $productImage5 = $_FILES['productImage5']['name'];
   if((!empty($productImage5))){
     $destinationImage51 = '../img/productsImages/'.$renameImage3.$productImage5;
-    $destinationImage5 = '/ShopStore/img/productsImages/'.$renameImage3.$productImage5;
+    $destinationImage5 = '/RedStore/img/productsImages/'.$renameImage3.$productImage5;
     move_uploaded_file($_FILES['productImage5']['tmp_name'], $destinationImage51);
   }else{
     $destinationImage5 =  $productImage5old;
